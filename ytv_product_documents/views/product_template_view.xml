@@ -1,0 +1,59 @@
+<odoo>
+    <record id="view_product_form_x_product_documents" model="ir.ui.view">
+        <field name="name">product.template.form.x.product.documents</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+
+            <!-- 🟢 Thêm TAB MỚI -->
+            <xpath expr="//sheet/notebook" position="inside">
+                <page name="x_product_docs_tab" string="Tài liệu">
+                    <group string="Tài liệu pháp lý và hồ sơ kỹ thuật">
+
+                        <!-- Text field -->
+                        <field name="x_ytv_registration_no"/>
+
+                        <!-- URL fields -->
+                        <field name="x_ytv_registration_certificate_vn" widget="url"/>
+                        <field name="x_ytv_medical_equipment_classification" widget="url"/>
+                        <field name="x_ytv_product_owner_authorization" widget="url"/>
+                        <field name="x_ytv_eligibility_warranty" widget="url"/>
+                        <field name="x_ytv_single_use_medical_declaration" widget="url"/>
+                        <field name="x_ytv_product_standard_vn" widget="url"/>
+                        <field name="x_ytv_product_standard_en" widget="url"/>
+                        <field name="x_ytv_iso_13485_cert" widget="url"/>
+                        <field name="x_ytv_mdsap_cert" widget="url"/>
+                        <field name="x_ytv_production_country_license" widget="url"/>
+                        <field name="x_ytv_fsc_cert_origin" widget="url"/>
+                        <field name="x_ytv_fsc_cert_eu" widget="url"/>
+                        <field name="x_ytv_doc_ce_cert" widget="url"/>
+                        <field name="x_ytv_us_cfg_cert" widget="url"/>
+                        <field name="x_ytv_us_fda_801_cert" widget="url"/>
+                        <field name="x_ytv_us_fda_802_cert" widget="url"/>
+                        <field name="x_ytv_testing_certificate_vn" widget="url"/>
+                        <field name="x_ytv_external_test_result_vn" widget="url"/>
+                        <field name="x_ytv_external_test_result_en" widget="url"/>
+                        <field name="x_ytv_ilac_cert" widget="url"/>
+                        <field name="x_ytv_iaf_cert" widget="url"/>
+
+                        <field name="x_ytv_packaging_label_sample" widget="url"/>
+                        <field name="x_ytv_user_manual_vn" widget="url"/>
+                        <field name="x_ytv_user_manual_en" widget="url"/>
+                        <field name="x_ytv_msds_doc" widget="url"/>
+                        <field name="x_ytv_coa_sample" widget="url"/>
+                        <field name="x_ytv_preclinical_report" widget="url"/>
+                        <field name="x_ytv_clinical_report" widget="url"/>
+                        <field name="x_ytv_explanation" widget="url"/>
+                        <field name="x_ytv_sales_docs_folder_vn" widget="url"/>
+                        <field name="x_ytv_sales_docs_folder_en" widget="url"/>
+                        <field name="x_ytv_coa_folder" widget="url"/>
+                        <field name="x_ytv_catalog_en" widget="url"/>
+                        <field name="x_ytv_catalog_vn" widget="url"/>
+
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
