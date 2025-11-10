@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <!-- Kế thừa form của hợp đồng -->
+        <record id="hr_contract_view_form_inherit" model="ir.ui.view">
+            <field name="name">hr.contract.view.form.inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+
+                <!-- Ẩn trường analytic_account_id (trường Many2one mặc định của Odoo) -->
+                <xpath expr="//field[@name='analytic_account_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- Ẩn luôn trường analytic_account_ids (nếu bạn có thêm mới Many2many)
+                <xpath expr="//field[@name='analytic_account_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath> -->
+
+            </field>
+        </record>
+    </data>
+</odoo>
