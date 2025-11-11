@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
 
             <!-- Thêm trường Analytic Accounts vào nhóm contract_details -->
-            <group name="contract_details" position="inside">
+            <group name="contract_details" position="after">
                 <group>
                     <field
                         name="analytic_account_ids"
@@ -19,7 +19,11 @@
                     />
                 </group>
             </group>
-
+            
+            <!-- Ẩn các field analytic để không hiển thị -->
+            <xpath expr="//field[@name='analytic_account_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
         </field>
     </record>
 </odoo>

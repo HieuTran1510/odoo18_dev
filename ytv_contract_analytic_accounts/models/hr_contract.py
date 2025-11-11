@@ -1,5 +1,4 @@
-from odoo import models, fields
-
+from odoo import models, fields  # pyright: ignore[reportMissingImports]
 
 class HrContract(models.Model):
     _inherit = 'hr.contract'
@@ -12,6 +11,5 @@ class HrContract(models.Model):
         'analytic_account_id',
         string='Analytic Accounts',
         check_company=True,
-        # default=lambda self: [],
         help='List of analytic accounts linked to this contract.'
     )
