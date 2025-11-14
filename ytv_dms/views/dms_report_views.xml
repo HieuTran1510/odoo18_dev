@@ -1,0 +1,48 @@
+<odoo>
+    <!-- PIVOT VIEW -->
+    <record id="view_dms_document_version_pivot" model="ir.ui.view">
+        <field name="name">dms.document.version.pivot</field>
+        <field name="model">dms.document.version</field>
+        <field name="arch" type="xml">
+            <pivot string="Báo cáo">
+                <!-- HÀNG -->
+                <field name="x_issue_date" type="row"/>
+                <field name="x_effective_date" type="row"/>
+
+                <!-- CỘT -->
+                <field name="x_author" type="col"/>
+                <field name="x_reviewer" type="col"/>
+                <field name="x_approver" type="col"/>
+
+                <!-- MEASURE HỢP LỆ -->
+                <!-- <field name="x_version_count" type="measure"/> -->
+            </pivot>
+        </field>
+    </record>
+
+    <!-- SEARCH VIEW -->
+    <record id="view_dms_document_version_search" model="ir.ui.view">
+        <field name="name">dms.document.version.search</field>
+        <field name="model">dms.document.version</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_issue_date"/>
+
+                <filter string="Tháng này" name="this_month" domain="[
+                    ('x_issue_date', '&gt;=', context_today().replace(day=1)),
+                    ('x_issue_date', '&lt;=', context_today())
+                ]"/>
+
+                <filter string="Năm nay" name="this_year" domain="[
+                    ('x_issue_date', '&gt;=', context_today().replace(month=1, day=1)),
+                    ('x_issue_date', '&lt;=', context_today())
+                ]"/>
+
+                <group expand="0" string="Nhóm theo">
+                    <filter string="Tháng" name="group_month" context="{'group_by':'x_issue_date:month'}"/>
+                    <filter string="Năm" name="group_year" context="{'group_by':'x_issue_date:year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
