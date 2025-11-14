@@ -1,0 +1,85 @@
+<odoo>
+    <!-- Search view -->
+    <record id="view_dms_document_search" model="ir.ui.view">
+        <field name="name">dms.document.search</field>
+        <field name="model">dms.document</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+                <field name="x_description"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Danh sách tài liệu -->
+    <record id="view_dms_document_list" model="ir.ui.view">
+        <field name="name">dms.document.list</field>
+        <field name="model">dms.document</field>
+        <field name="arch" type="xml">
+            <list>
+                <!-- <field name="code"/> -->
+                <field name="x_name"/>
+                <field name="x_description"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form tài liệu -->
+    <record id="view_dms_document_form" model="ir.ui.view">
+        <field name="name">dms.document.form</field>
+        <field name="model">dms.document</field>
+        <field name="arch" type="xml">
+            <form string="Tài liệu">
+                <sheet>
+                    <group>
+                        <!-- <field name="code"/> -->
+                        <h1>
+                            <field name="x_name" placeholder='Tên tài liệu'/>
+                        </h1>
+                        <field name="x_link" widget="url"/>
+                        <field name="x_description"/>
+                    </group>
+                    <notebook>
+                        <page string="Bảng thông tin tài liệu">
+                            <field name="x_version_ids">
+                                <list readonly="1">
+                                    <field name="x_version_code"/>
+                                    <field name="x_author"/>
+                                    <field name="x_verifier"/>
+                                    <field name="x_reviewer"/>
+                                    <field name="x_approver"/>
+                                    <field name="x_issue_date"/>
+                                    <field name="x_effective_date"/>
+                                    <field name="x_change_content"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Form version tài liệu -->
+    <record id="view_dms_document_version_form" model="ir.ui.view">
+        <field name="name">dms.document.version.form</field>
+        <field name="model">dms.document.version</field>
+        <field name="arch" type="xml">
+            <form string="Phiên bản tài liệu">
+                <sheet>
+                    <group>
+                        <field name="x_document_id" readonly="1"/>
+                        <field name="x_version_code"/>
+                        <field name="x_author"/>
+                        <field name="x_verifier"/>
+                        <field name="x_reviewer"/>
+                        <field name="x_approver"/>
+                        <field name="x_issue_date"/>
+                        <field name="x_effective_date"/>
+                        <field name="x_change_content"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
