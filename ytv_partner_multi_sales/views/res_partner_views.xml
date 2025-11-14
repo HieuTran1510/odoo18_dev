@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_partner_form_add_team_id" model="ir.ui.view">
+        <field name="name">res.partner.form.add.team.id</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Chèn trường team_ids ngay sau Salesperson -->
+            <xpath expr="//page[@name='sales_purchases']//group[@name='sale']/field[@name='user_id']" position="after">
+                <field name="team_ids" widget="many2many_tags"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
